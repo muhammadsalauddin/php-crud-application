@@ -38,19 +38,12 @@ hobbies='" . $hobbies . "' ,gender='" . $gender . "' , profile='" . $image . "' 
      }
   	}else{
   		$_SESSION["msg"] = '<div class="alert alert-primary" role="alert" id="alert">Fail To Upload</div>';
-      print_r($_FILES);
   	}
 foreach($hobbies1 as $chk1)
  {
     $hobbies .= $chk1.",";
  }
 
-
-if(!$result = $conn->query($sql)){
-  die('There was an error running the query [' . $conn->error . ']');
-} else {
-  $_SESSION["msg"] = '<div class="alert alert-primary" role="alert" id="alert">Record Modified successfully</div>';
-}
 
 }
 $result = mysqli_query($conn,"SELECT * FROM users WHERE id='" . $_GET['id'] . "'");
@@ -102,7 +95,7 @@ form.cmxform label.error {
      echo $_SESSION['msg'];
   } ?>
   <div class="container mt-3">
-<form name="frmUser" method="post" action="" enctype="multipart/form-data">
+<form name="action" method="post" action="" enctype="multipart/form-data">
 
 <div class="form-group mb-3 mt-3">
     <input type="hidden" class="form-control" name="id" value="<?php echo $row['id']; ?>">
